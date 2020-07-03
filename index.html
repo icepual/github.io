@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="icepual的个人博客">
+  <meta name="keywords" content="icepual 博客">
+  <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <link rel="shortcut icon" href="http://selfblog-1253589063.file.myqcloud.com/common/fav.ico">
+  <link rel="bookmark" href="http://selfblog-1253589063.file.myqcloud.com/common/fav.ico" />
+  <title>icepual</title>
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery-3.1.1.min.js"></script>
+</head>
+
+  <body>
+    <div class="container">
+      
+<header id="header" class="header">
+  <div class="header-banner"></div>
+  <!-- 常规导航 -->
+  <div class="header-outer" id="navBar">
+    <nav class="header-nav">
+      
+        <a class="header-nav-link active" href="/">
+          首页
+        </a>
+        
+        <a class="header-nav-link " href="/archives/">
+          归档
+        </a>
+        
+        <a class="header-nav-link " href="/categories/">
+          分类
+        </a>
+        
+        <a class="header-nav-link " href="/tags/">
+          标签
+        </a>
+        
+    </nav>
+    <div class="header-nav-mobile">
+      <div class="menu" id="menuMobile" isopen="false"></div>
+      <div class="title">icepual</div>
+      <img class="nav-head rotation" src="http://selfblog-1253589063.file.myqcloud.com/common/header_100.png">
+    </div>
+  </div>
+  <!-- 顶部固定 -->
+  <div class="header-outer fixed-nav shadow">
+    <nav class="header-nav">
+      
+        <a class="header-nav-link active" href="/">
+          首页
+        </a>
+      
+        <a class="header-nav-link " href="/archives/">
+          归档
+        </a>
+      
+        <a class="header-nav-link " href="/categories/">
+          分类
+        </a>
+      
+        <a class="header-nav-link " href="/tags/">
+          标签
+        </a>
+      
+    </nav>
+  </div>
+  <!-- mobile下拉列表 -->
+  <nav class="header-menu-list">
+    
+      <a class="header-menu-list-link active" href="/">
+        首页
+      </a>
+      
+      <a class="header-menu-list-link " href="/archives/">
+        归档
+      </a>
+      
+      <a class="header-menu-list-link " href="/categories/">
+        分类
+      </a>
+      
+      <a class="header-menu-list-link " href="/tags/">
+        标签
+      </a>
+      
+  </nav>
+  <!-- 个人中心下拉列表 -->
+  <nav class="header-info-list">
+    <a href="/archives" class="header-info-list-link">
+        归档（8）
+    </a>
+    <a href="/categories" class="header-info-list-link">
+        分类（11）
+    </a>
+    <a href="/tags" class="header-info-list-link">
+        标签（7）
+    </a>
+  </nav>
+  <script>
+    function fixHeader(){
+      var touchHead = $('#navBar').offset().top - $(window).scrollTop();
+      if(touchHead && touchHead <= 0){
+        $('.fixed-nav').show();
+      }else{
+        $('.fixed-nav').hide(0);
+      }
+    }
+    $(function() {
+      // window.addEventListener('scroll', this.handleScroll);
+      $(window).scroll(function (){
+        fixHeader();
+      });
+      $('#menuMobile').click(function (){
+        if($(this).hasClass('menu-close')){
+          $(this).removeClass('menu-close');
+          $('.header-menu-list').removeClass('open');
+        }else{
+          $(this).addClass('menu-close');
+          $('.header-menu-list').addClass('open');
+        }
+      });
+
+     /*  $('.nav-head').click(function(){
+        if($(this).hasClass('close')){
+          $(this).removeClass('close');
+          $('.header-info-list').addClass('open');
+        }else{
+          $(this).addClass('close');
+          $('.header-info-list').removeClass('open');
+        }
+      }); */
+    })
+  </script>
+</header>
+      <div class="main-wrap">
+        <div class="main-left">
+          <section class="main">
+    <div class="article-list">
+
+    <div class="list-item shadow">
+    
+    <div class="list-item-cover" style="background-image:url('http://selfblog-1253589063.file.myqcloud.com/post/calendars-home-hero-us.jpg')"></div>
+    
+    <a class="list-item-title" href="/2018/04/24/dateFormatter/">javascript日期格式化方法</a>
+    <div class="list-item-msg">
+        <span class="list-item-time"><i class="ice ice-rili"></i> 发布时间 2018-04-24
+        </span>
+        &nbsp;|&nbsp;
+        <span class="list-item-type"><i class="ice ice-wenjianjia"></i> 分类 前端 > JS</span>
+    </div>
+    <div class="list-item-content"><p>javascript中Date类比较常用,但对于其各种处理(格式化、运算等)都需要引入第三方库(moment.js,day.js)才可以处理, 但通常情况下我们用到的只是格式化而已,所以以下记录一个格式化的方法</div>
+    <div class="list-item-content closed"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 日期格式化</span></span><br><span class="line"><span class="comment"> * @param date Date 目标日期对象/String 日期对应字符串/ Number: 时间戳(精确到毫秒)</span></span><br><span class="line"><span class="comment"> *        String fmt 指定格式字符串月(M)、日(d)、12小时(h)、24小时(H)、分(m)、秒(s)、周(E)、季度(q)可以用 1-2 个占位符、年(y)可以用 1-4 个占位符、毫秒(S)只能用 1 个占位符(是 1-3 位的数字)</span></span><br><span class="line"><span class="comment"> * @return Boolean</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dateFormatter</span>(<span class="params">dateTmp, fmtTmp</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> fmt = fmtTmp;</span><br><span class="line">    <span class="keyword">let</span> date = dateTmp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!fmt) &#123;</span><br><span class="line">        fmt = <span class="string">'yyyy.MM.dd'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!(date <span class="keyword">instanceof</span> <span class="built_in">Date</span>)) &#123;</span><br><span class="line">        date = <span class="keyword">new</span> <span class="built_in">Date</span>(date);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> o = &#123;</span><br><span class="line">        <span class="string">"M+"</span>: date.getMonth() + <span class="number">1</span>, <span class="comment">//月份</span></span><br><span class="line">        <span class="string">"d+"</span>: date.getDate(), <span class="comment">//日</span></span><br><span class="line">        <span class="string">"h+"</span>: date.getHours() % <span class="number">12</span> == <span class="number">0</span> ? <span class="number">12</span> : date.getHours() % <span class="number">12</span>, <span class="comment">//小时</span></span><br><span class="line">        <span class="string">"H+"</span>: date.getHours(), <span class="comment">//小时</span></span><br><span class="line">        <span class="string">"m+"</span>: date.getMinutes(), <span class="comment">//分</span></span><br><span class="line">        <span class="string">"s+"</span>: date.getSeconds(), <span class="comment">//秒</span></span><br><span class="line">        <span class="string">"q+"</span>: <span class="built_in">Math</span>.floor((date.getMonth() + <span class="number">3</span>) / <span class="number">3</span>), <span class="comment">//季度</span></span><br><span class="line">        <span class="string">"S"</span>: date.getMilliseconds() <span class="comment">//毫秒</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">let</span> week = &#123;</span><br><span class="line">        <span class="string">"0"</span>: <span class="string">"日"</span>,</span><br><span class="line">        <span class="string">"1"</span>: <span class="string">"一"</span>,</span><br><span class="line">        <span class="string">"2"</span>: <span class="string">"二"</span>,</span><br><span class="line">        <span class="string">"3"</span>: <span class="string">"三"</span>,</span><br><span class="line">        <span class="string">"4"</span>: <span class="string">"四"</span>,</span><br><span class="line">        <span class="string">"5"</span>: <span class="string">"五"</span>,</span><br><span class="line">        <span class="string">"6"</span>: <span class="string">"六"</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/(y+)/</span>.test(fmt)) &#123;</span><br><span class="line">        fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (date.getFullYear() + <span class="string">""</span>).substr(<span class="number">4</span> - <span class="built_in">RegExp</span>.$<span class="number">1.</span>length));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/(E+)/</span>.test(fmt)) &#123;</span><br><span class="line">        fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, ((<span class="built_in">RegExp</span>.$<span class="number">1.</span>length &gt; <span class="number">1</span>) ? (<span class="built_in">RegExp</span>.$<span class="number">1.</span>length &gt; <span class="number">2</span> ? <span class="string">"星期"</span> : <span class="string">"周"</span>) : <span class="string">""</span>) + week[date.getDay() + <span class="string">""</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> o) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"("</span> + k + <span class="string">")"</span>).test(fmt)) &#123;</span><br><span class="line">            fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (<span class="built_in">RegExp</span>.$<span class="number">1.</span>length == <span class="number">1</span>) ? (o[k]) : ((<span class="string">"00"</span> + o[k]).substr((<span class="string">""</span> + o[k]).length)));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fmt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>赶紧试一试吧:</p>
+<p><div class="input"><input id="format" type="text" style="background-color: #fff;display: inline-block;background-image: none;border-radius: 4px;border: 1px solid #dcdfe6;box-sizing: border-box;color: #606266;display: inline-block;font-size: inherit;height: 40px;line-height: 40px;outline: none;padding: 0 15px;vertical-align:top;"><button onclick="formatter()" style="display: inline-block;line-height: 1;white-space: nowrap;cursor: pointer;background: #fff;border: 1px solid #dcdfe6;border-color: #dcdfe6;color: #606266;-webkit-appearance: none;text-align: center;box-sizing: border-box;outline: none;margin: 0;transition: .1s;font-weight: 500;padding: 12px 20px;font-size: 14px;border-radius: 4px;vertical-align:top;margin-left:10px;">格式化</button></div><div id="result" style="margin: 10px;"></div></p>
+<script type="text/javascript">
+    function dateFormatter(dateTmp, fmtTmp) {
+        let fmt = fmtTmp;
+        let date = dateTmp;
+        if (!fmt) {
+            fmt = 'yyyy.MM.dd';
+        }
+        if (!(date instanceof Date)) {
+            date = new Date(date);
+        }
+        let o = {
+            "M+": date.getMonth() + 1, //月份
+            "d+": date.getDate(), //日
+            "h+": date.getHours() % 12 == 0 ? 12 : date.getHours() % 12, //小时
+            "H+": date.getHours(), //小时
+            "m+": date.getMinutes(), //分
+            "s+": date.getSeconds(), //秒
+            "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+            "S": date.getMilliseconds() //毫秒
+        };
+        let week = {
+            "0": "日",
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六"
+        };
+        if (/(y+)/.test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+        }
+        if (/(E+)/.test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, ((RegExp.$1.length > 1) ? (RegExp.$1.length > 2 ? "星期" : "周") : "") + week[
+                date.getDay() + ""]);
+        }
+        for (var k in o) {
+            if (new RegExp("(" + k + ")").test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            }
+        }
+        return fmt;
+    }
+    function formatter() {
+        let data = new Date();
+        let fmt = document.getElementById('format').value;
+        document.getElementById('result').innerHTML = '格式化结果: '+dateFormatter(new Date(), fmt);
+    }
+</script></div>
+    <div class="list-item-more">
+        <i class="ice ice-gengduo-copy"></i>
+    </div>
+</div>
+
+    <div class="list-item shadow">
+    
+    <a class="list-item-title" href="/2018/04/24/eruda/">移动端web调试工具</a>
+    <div class="list-item-msg">
+        <span class="list-item-time"><i class="ice ice-rili"></i> 发布时间 2018-04-24
+        </span>
+        &nbsp;|&nbsp;
+        <span class="list-item-type"><i class="ice ice-wenjianjia"></i> 分类 前端 > JS</span>
+    </div>
+    <div class="list-item-content"><p>现在移动端web开发大多在pc端浏览器模拟移动端开发, 但是真机测试时,有一旦碰到问题很难跟踪到问题所在,今天推荐一款移动端开发的调试工具Eruda, 只需要简单几行代码即可导入调试工具, 在真机测试时可随时打开调试,查看console输出以及dom结构,非常方便</p>
+<p><a href="https://github.com/liriliri/eruda/blob/master/doc/README_CN.md" target="_blank" rel="external">点我查看代码</a><br><a href="http://eruda.liriliri.io/" target="_blank" rel="external">点我查看Demo</a><br></div>
+    <div class="list-item-content closed"><br>以下是效果图<br><img src="http://selfblog-1253589063.file.myqcloud.com/post/eruda.png" alt="效果图"></p>
+<p>使用方法:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    hahah</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test"</span>&gt;</span></span><br><span class="line">        fdsafdsa</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"doconsole()"</span>&gt;</span>dianwo<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        function doconsole() &#123;</span></span><br><span class="line"><span class="undefined">            console.log('fdsafdsafdsssssssssss');</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        (function () &#123;</span></span><br><span class="line"><span class="undefined">            var script = document.createElement('script');</span></span><br><span class="line"><span class="undefined">            script.src = "http://cdn.jsdelivr.net/npm/eruda";</span></span><br><span class="line"><span class="undefined">            document.body.appendChild(script);</span></span><br><span class="line"><span class="undefined">            script.onload = function () &#123;</span></span><br><span class="line"><span class="undefined">                console.log('onload');</span></span><br><span class="line"><span class="undefined">                var el = document.createElement('div');</span></span><br><span class="line"><span class="undefined">                document.body.appendChild(el);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">                eruda.init(&#123;</span></span><br><span class="line"><span class="undefined">                    container: el,</span></span><br><span class="line"><span class="undefined">                    //tool: ['console', 'elements']//自定义显示的工具</span></span><br><span class="line"><span class="undefined">                &#125;);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;)();</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p></div>
+    <div class="list-item-more">
+        <i class="ice ice-gengduo-copy"></i>
+    </div>
+</div>
+
+    <div class="list-item shadow">
+    
+    <div class="list-item-cover" style="background-image:url('http://selfblog-1253589063.file.myqcloud.com/post/pngcut.png')"></div>
+    
+    <a class="list-item-title" href="/2018/04/24/nodePupeteer/">node+puppeteer简单爬虫爬取图片地址</a>
+    <div class="list-item-msg">
+        <span class="list-item-time"><i class="ice ice-rili"></i> 发布时间 2018-04-24
+        </span>
+        &nbsp;|&nbsp;
+        <span class="list-item-type"><i class="ice ice-wenjianjia"></i> 分类 前端 > JS</span>
+    </div>
+    <div class="list-item-content"><p>近期发现一个比较有意思的库Puppeteer, 这是Google官方推出维护的headless Chrome的node库, 可以通过脚本控制chrominum浏览器(无界面或者有界面)实现丰富功能. 比如用node完成爬虫功能、爬取spa代替pre-rander以完成seo的需求, web应用的自动化测试, 完成网页截图甚至生成pdf…</div>
+    <div class="list-item-content closed">以下是官方描述:</p>
+<blockquote>
+<p>What can I do?</p>
+</blockquote>
+<p>Most things that you can do manually in the browser can be done using Puppeteer! Here are a few examples to get you started:</p>
+<ul>
+<li>Generate screenshots and PDFs of pages.</li>
+<li>Crawl a SPA and generate pre-rendered content (i.e. “SSR”).</li>
+<li>Automate form submission, UI testing, keyboard input, etc.</li>
+<li>Create an up-to-date, automated testing environment. Run your tests directly in the latest version of Chrome using the latest JavaScript and browser features.</li>
+<li>Capture a timeline trace of your site to help diagnose performance issues.</li>
+</ul>
+<p>但改库只能调用自动安装的Chromium浏览器, 自动测试不能用于其他浏览器的测试,应用起来就会有些力不从心, 但对于抓取页面真心非常强大, 以下是一个使用Puppeteer抓取图片网站地址的小demo:</p>
+<blockquote>
+<p>1.安装nodejs,然后安装Puppoteer</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i puppeteer</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2.测试截图功能, 新建example.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>);</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch();</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">    <span class="keyword">await</span> page.goto(<span class="string">'https://www.icepual.com'</span>);</span><br><span class="line">    <span class="keyword">await</span> page.screenshot(&#123;<span class="attr">path</span>: <span class="string">'example.png'</span>&#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>3.执行文件测试结果,会保留目标页面的一张简单的截图<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node example.js</span><br></pre></td></tr></table></figure></p>
+<p>4.找到一个图片网站<a href="https://wallhalla.com/search?color=987a60" target="_blank" rel="external">https://wallhalla.com/search?color=987a60</a> ,尝试抓取部分图片,首先查看页面结构:<br><img src="http://selfblog-1253589063.file.myqcloud.com/post/puppoteer-example.png" alt="效果图"><br>这是用puppoteer的截图api做出的全网页截图, 图片应该是有懒加载,然后查看html代码结构:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"thumb-wrap"</span> <span class="attr">data-id</span>=<span class="string">"EGMglw0bfyl7"</span> <span class="attr">data-tags</span>=<span class="string">"dodge|vehicles"</span> <span class="attr">data-wh</span>=<span class="string">"2048x1536"</span> <span class="attr">data-sources</span>=<span class="string">"ZxI4JWJ,2048x1536,alphacoders"</span> <span class="attr">data-colors</span>=<span class="string">"967f62:36_74573e:20_c8b293:18_0d0b08:16_cdef45:7"</span> <span class="attr">data-faved</span>=<span class="string">"0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/wallpaper/EGMglw0bfyl7"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">class</span>=<span class="string">"thumb-a"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/thumbs/small/e/EGMglw0bfyl7.jpg"</span> <span class="attr">data-src</span>=<span class="string">"/thumbs/small/e/EGMglw0bfyl7.jpg"</span> <span class="attr">class</span>=<span class="string">"thumb-img lazyload"</span> <span class="attr">width</span>=<span class="string">"350"</span> <span class="attr">height</span>=<span class="string">"262"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"thumb-footer-wrap -clr"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mlt-link -right"</span> <span class="attr">title</span>=<span class="string">"More Like This"</span>&gt;</span>more like this<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>这是网站每个图片单元的结构,可以看到图片的链接保存在img标签中, 此处做了懒加载处理, 最初只有data-src中的数据为准确链接,直接获取该链接即可,然后模拟点击下一页即可继续获取下一页图片地址, 以下为获取50页图片链接保存至文件例子:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>);</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123;</span><br><span class="line">        headless: <span class="literal">true</span><span class="comment">//此处设为false可以改为有界面操作,可以查看浏览器具体动作</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">    <span class="keyword">await</span> page.goto(<span class="string">'https://wallhalla.com/search?color=e9cd56'</span>, &#123;</span><br><span class="line">        waitUntil: <span class="string">'networkidle0'</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">await</span> page.setViewport(&#123;</span><br><span class="line">        width: <span class="number">1920</span>,</span><br><span class="line">        height: <span class="number">1080</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// 截图</span></span><br><span class="line">    <span class="comment">// await page.waitFor(3 * 1000);</span></span><br><span class="line">    <span class="comment">// await page.screenshot(&#123;path:"example1.png", fullPage: true&#125;);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// const images = await page.$$('.thumb-img');</span></span><br><span class="line">    <span class="keyword">await</span> handleData();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt;= <span class="number">50</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> nextBtn = <span class="keyword">await</span> page.$(<span class="string">'.random'</span>);</span><br><span class="line"></span><br><span class="line">        nextBtn.click();</span><br><span class="line">        <span class="comment">// 适当停止,防止被拉黑或封号</span></span><br><span class="line">        <span class="keyword">await</span> page.waitFor(<span class="number">3</span> * <span class="number">1000</span>);</span><br><span class="line">        <span class="keyword">await</span> handleData();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> browser.close();</span><br><span class="line">    <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">handleData</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> list = <span class="keyword">await</span> page.evaluate(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 先声明一个用于存储爬取数据的数组</span></span><br><span class="line">            <span class="keyword">let</span> listString = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 获取到所有的商品元素</span></span><br><span class="line">            <span class="keyword">let</span> itemList = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.thumb-img'</span>);</span><br><span class="line">            <span class="comment">// 遍历每一个元素，整理需要爬取的数据</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> itemList) &#123;</span><br><span class="line">                <span class="comment">// 将这个标签页的数据push进刚才声明的结果数组</span></span><br><span class="line">                listString = listString + <span class="string">',\n\'https://wallhalla.com/'</span> + item.dataset.src + <span class="string">'\''</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> listString;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// 当前页面所有的返回给外部环境</span></span><br><span class="line">        fs.appendFile(<span class="string">'images-e9cd56.txt'</span>, list, (err) =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.error(err);</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"数据写入成功！"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>这里只是爬取几个简单的缩略图,获取大图需要做更多的操作甚至需要账号等信息</p></div>
+    <div class="list-item-more">
+        <i class="ice ice-gengduo-copy"></i>
+    </div>
+</div>
+
+    <div class="list-item shadow">
+    
+    <div class="list-item-cover" style="background-image:url('http://selfblog-1253589063.file.myqcloud.com/post/week.jpg')"></div>
+    
+    <a class="list-item-title" href="/2018/04/23/jsGetWeek/">Date对象获取某天周数以及通过周数获取日期</a>
+    <div class="list-item-msg">
+        <span class="list-item-time"><i class="ice ice-rili"></i> 发布时间 2018-04-23
+        </span>
+        &nbsp;|&nbsp;
+        <span class="list-item-type"><i class="ice ice-wenjianjia"></i> 分类 前端 > JS</span>
+    </div>
+    <div class="list-item-content"><p>经常用到获取某天为该年第几周,或者计算某一周某天的日期,今天记录下计算方法(node调试需要注意时区影响)</p></div>
+    <div class="list-item-content closed"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 通过年份获取该年第一周第一天日期,以周四为基础 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFirstWeekDay</span>(<span class="params">year</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(year, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">let</span> day = date.getDay();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (day &gt; <span class="number">4</span>) &#123;</span><br><span class="line">        date.setDate(<span class="number">8</span> - day);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        date.setDate(<span class="number">1</span> - day);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> date;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* src日期 Date</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getWeek</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 重新定义日期对象,防止篡改源对象</span></span><br><span class="line">    <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(src.getTime());</span><br><span class="line">    <span class="keyword">let</span> sourceDay = date.getDay();</span><br><span class="line">    <span class="comment">// 根据日期所在周周四判断本周属于哪年</span></span><br><span class="line">    <span class="keyword">let</span> yearDate = <span class="keyword">new</span> <span class="built_in">Date</span>(src.getTime());</span><br><span class="line"></span><br><span class="line">    yearDate.setDate(src.getDate() - sourceDay + <span class="number">4</span>);</span><br><span class="line">    <span class="keyword">let</span> year = yearDate.getFullYear();</span><br><span class="line">    <span class="keyword">let</span> week1 = getFirstWeekDay(year);</span><br><span class="line">    <span class="keyword">let</span> week1Day = week1.getDay();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将原始日期归于当周周日</span></span><br><span class="line">    date.setHours(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    date.setDate(date.getDate() - sourceDay);</span><br><span class="line">    <span class="comment">//计算周数</span></span><br><span class="line">    <span class="keyword">if</span> (date.getTime() == week1.getTime()) &#123;</span><br><span class="line">        <span class="keyword">return</span> [year, <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> week = <span class="built_in">Math</span>.ceil((date.getTime() - week1.getTime()) / <span class="number">86400000</span> / <span class="number">7</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        year: year,</span><br><span class="line">        week: week</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过周数获取日期区间(src周数 '2016年第12周' '2016w12')</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getDateByWeek</span>(<span class="params">src_year, src_week</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (src_year &lt;= <span class="number">0</span> || src_week &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'getDataByWeek 参数不正确'</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> year = <span class="built_in">Number</span>(src_year);</span><br><span class="line">    <span class="keyword">const</span> week = <span class="built_in">Number</span>(src_week);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">isNaN</span>(year) &amp;&amp; !<span class="built_in">isNaN</span>(week)) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> week1Time = getFirstWeekDay(year).getTime();</span><br><span class="line">        <span class="keyword">let</span> start = <span class="keyword">new</span> <span class="built_in">Date</span>(week1Time + (week - <span class="number">1</span>) * <span class="number">604800000</span>);</span><br><span class="line">        <span class="keyword">let</span> end = <span class="keyword">new</span> <span class="built_in">Date</span>(start.getTime() + <span class="number">604800000</span> - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            start: start.toLocaleString(),</span><br><span class="line">            end: end.toLocaleString()</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(getDateByWeek(<span class="number">2018</span>, <span class="number">1</span>));</span><br><span class="line"><span class="built_in">console</span>.log(getWeek(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2017</span>, <span class="number">11</span>, <span class="number">31</span>)));</span><br></pre></td></tr></table></figure>
+<p>说明: 对于周数没有统一说法, 本方法将每年第一周定义为本年第一个周四所在周为第一周, 若1号大于周四,则归于上一年</p></div>
+    <div class="list-item-more">
+        <i class="ice ice-gengduo-copy"></i>
+    </div>
+</div>
+
+    <div class="list-item shadow">
+    
+    <div class="list-item-cover" style="background-image:url('http://selfblog-1253589063.cossh.myqcloud.com/demo/%E6%B2%B9%E5%BD%A9.jpg')"></div>
+    
+    <a class="list-item-title" href="/2017/12/11/vueImgPreview/">vue图片预览组件实例</a>
+    <div class="list-item-msg">
+        <span class="list-item-time"><i class="ice ice-rili"></i> 发布时间 2017-12-11
+        </span>
+        &nbsp;|&nbsp;
+        <span class="list-item-type"><i class="ice ice-wenjianjia"></i> 分类 前端 > JS</span>
+    </div>
+    <div class="list-item-content"><p>关于图片预览,以前常用jquery常用插件,今天用vue+css+js完成一个简单的图片预览组件,记录一下</p>
+<p><a href="https://github.com/icepual/imagePreview" target="_blank" rel="external">点我查看代码</a></p></div>
+    <div class="list-item-content closed"><p>效果图:</p>
+<p><img src="http://selfblog-1253589063.file.myqcloud.com/post/img_preview.png" alt="效果图"></p>
+<p>使用方法:</p>
+<p>html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">preview</span> <span class="attr">ref</span>=<span class="string">"preview"</span>&gt;</span><span class="tag">&lt;/<span class="name">preview</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>javascript<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> preview <span class="keyword">from</span> <span class="string">'路径'</span>;</span><br><span class="line"></span><br><span class="line">fnPreviewImage(images) &#123;</span><br><span class="line">    <span class="keyword">this</span>.$refs.preview.show(images);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p></div>
+    <div class="list-item-more">
+        <i class="ice ice-gengduo-copy"></i>
+    </div>
+</div>
+
+    <div class="list-item shadow">
+    
+    <div class="list-item-cover" style="background-image:url('http://selfblog-1253589063.file.myqcloud.com/post/data.jpg')"></div>
+    
+    <a class="list-item-title" href="/2017/08/17/vueSetData/">小谈vue赋值</a>
+    <div class="list-item-msg">
+        <span class="list-item-time"><i class="ice ice-rili"></i> 发布时间 2017-08-17
+        </span>
+        &nbsp;|&nbsp;
+        <span class="list-item-type"><i class="ice ice-wenjianjia"></i> 分类 前端 > JS</span>
+    </div>
+    <div class="list-item-content"><h2 id="Vue中set-delete使用（Vue2-x）"><a href="#Vue中set-delete使用（Vue2-x）" class="headerlink" title="Vue中set,delete使用（Vue2.x）"></a>Vue中set,delete使用（Vue2.x）</h2><p>由于JavaScript限制，在部分情况下，通过js改变数据，Vue并不能检测到，从而无法完成渲染，针对这些情况,Vue给出了相应的解决办法</p></div>
+    <div class="list-item-content closed"><blockquote>
+<p>数组检测</p>
+</blockquote>
+<p>由于javascript的限制，Vue不能检测到下面数组的变化：</p>
+<ol>
+<li>直接索引设置元素，如vm.item[0]={};</li>
+<li>修改数据的长度，如vm.item.length。<br>为了解决问题1，Vue扩展了观察数组，为它添加一个$set()方法，以下是一个错误例子：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        &#123;&#123;mytest&#125;&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"change"</span>&gt;</span>改变son<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="undefined">        components: &#123;&#125;,</span></span><br><span class="line"><span class="undefined">        data() &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="undefined">                mytest: [&#123;</span></span><br><span class="line"><span class="javascript">                    name: <span class="string">'张三'</span>,</span></span><br><span class="line"><span class="javascript">                    age: <span class="string">'50'</span>,</span></span><br><span class="line"><span class="undefined">                &#125;]</span></span><br><span class="line"><span class="undefined">            &#125;;</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        methods: &#123;</span></span><br><span class="line"><span class="undefined">            change()&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">                <span class="keyword">this</span>.mytest[<span class="number">0</span>] = &#123;</span></span><br><span class="line"><span class="javascript">                    name: <span class="string">'张大'</span>,</span></span><br><span class="line"><span class="javascript">                    age: <span class="string">'60'</span>,</span></span><br><span class="line"><span class="undefined">                &#125;;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>通过以上方法,直接修改数组的某一个元素,无法触发视图的更新,需要修改为:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.mytest, <span class="number">0</span>, &#123;</span><br><span class="line">        name: <span class="string">'张发的'</span>,</span><br><span class="line">        age: <span class="string">'145'</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>另外,还提供了删除方法: this.$delete(object, key)，同样会触发视图更新。</p>
+<blockquote>
+<p>检测对象</p>
+</blockquote>
+<p>受ES5的显示，VUE不能检测到对象属性的添加或删除。因为VUE在初始化时候将属性转化为getter/setter，所以属性必须在data对象才能让VUE转换它，才能让它是响应的,例如:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    data: data</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// `vm.a` 和 `data.a` 现在是响应的</span></span><br><span class="line"></span><br><span class="line">vm.b = <span class="number">2</span></span><br><span class="line"><span class="comment">// `vm.b` 不是响应的</span></span><br><span class="line"></span><br><span class="line">data.b = <span class="number">2</span></span><br><span class="line"><span class="comment">// `data.b` 不是响应的</span></span><br></pre></td></tr></table></figure></p>
+<p>不过，有办法在实例创建之后添加属性并且让它是响应的。对于Vue实例，可以使用$set(key,value)实例方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.$set(<span class="string">'b'</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure></p>
+<p>有时你想向已有对象上添加一些属性，例如使用 Object.assign() 或 _.extend() 添加属性。但是，添加到对象上的新属性不会触发更新。这时可以创建一个新的对象，包含原对象的属性和新的属性：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不使用 `Object.assign(this.someObject, &#123; a: 1, b: 2 &#125;)`</span></span><br><span class="line"><span class="keyword">this</span>.someObject = <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.someObject, &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;)</span><br></pre></td></tr></table></figure></p></div>
+    <div class="list-item-more">
+        <i class="ice ice-gengduo-copy"></i>
+    </div>
+</div>
+
+    <div class="list-item shadow">
+    
+    <a class="list-item-title" href="/2017/07/11/stickFooter/">stick footer实现尾部固定布局</a>
+    <div class="list-item-msg">
+        <span class="list-item-time"><i class="ice ice-rili"></i> 发布时间 2017-07-11
+        </span>
+        &nbsp;|&nbsp;
+        <span class="list-item-type"><i class="ice ice-wenjianjia"></i> 分类 前端 > JS</span>
+    </div>
+    <div class="list-item-content"><p>平时布局，尤其是移动端经常会碰到底部按钮定位问题，有时需要此种布局，当页面内容较少时，按钮仅靠底部，内容较多时，按钮则紧跟文章内容，直接上代码：</p></div>
+    <div class="list-item-content closed"><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">            * &#123;</span></span><br><span class="line"><span class="undefined">                margin: 0;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">            html,</span></span><br><span class="line"><span class="undefined">            body&#123;</span></span><br><span class="line"><span class="undefined">                height: 100%;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">            .main-content&#123;</span></span><br><span class="line"><span class="undefined">                min-height:100%;</span></span><br><span class="line"><span class="undefined">                margin-bottom: -60px;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">            // 防止footer覆盖content的内容</span></span><br><span class="line"><span class="undefined">            .main-content:after&#123;</span></span><br><span class="line"><span class="undefined">                content: '';</span></span><br><span class="line"><span class="undefined">                display: block;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">            .main-content:after,</span></span><br><span class="line"><span class="undefined">            .footer&#123;</span></span><br><span class="line"><span class="undefined">                height:60px;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">            .footer&#123;</span></span><br><span class="line"><span class="undefined">                background-color: yellow;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main-content"</span>&gt;</span></span><br><span class="line">            balabala<span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            balabala<span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span></span><br><span class="line">            stickFooter</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>描述:当内容不足一页时,footer定位在底部,当内容超过一页时,footer紧贴内容显示</p>
+<p>实例如下:</p>
+<p><div class="demo-container" style=" width: 320px; height: 568px; background-color: yellow; overflow: auto;"><div class="main-content" id="mainContent" style=" background-color: orange; min-height:100%; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;padding-bottom: 60px;margin-bottom:-60px;">现在只有一行内容,按钮会置地</div><div class="stick-footer" id="btnFull" onclick="toggleFull()" data-type="0" style=" cursor: pointer; background-color: blue; line-height: 60px; text-align: center; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; height:60px;">stickFooter: 点击查看填充效果</div></div></p>
+<script type="text/javascript">
+    function toggleFull(){
+        console.log('toggleFull');
+        var fullBtn = $('#btnFull');
+        var content = $('#mainContent');
+        var type= parseInt(fullBtn.attr('data-type'));
+        if(type == 0){
+            fullBtn.attr('data-type', 1);
+            content.html('这里填充了很多内容<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>');
+        }else{
+            fullBtn.attr('data-type', 0);
+            content.html('现在只有一行内容,按钮会置底');
+        }
+    }
+</script></div>
+    <div class="list-item-more">
+        <i class="ice ice-gengduo-copy"></i>
+    </div>
+</div>
+
+    <div class="list-item shadow">
+    
+    <a class="list-item-title" href="/2017/07/11/calcInLess/">calc在less中的使用</a>
+    <div class="list-item-msg">
+        <span class="list-item-time"><i class="ice ice-rili"></i> 发布时间 2017-07-11
+        </span>
+        &nbsp;|&nbsp;
+        <span class="list-item-type"><i class="ice ice-wenjianjia"></i> 分类 前端 > JS</span>
+    </div>
+    <div class="list-item-content"><p>对于前端er来说，Less或Sass已经是一项必备的基本技能，有了这个利器，可以省下前端开发者的很多编码时间，让你写CSS如行云流水一般，然后最近我在Less里加入calc时确发现了有点问题，我在Less中这么写：</p></div>
+    <div class="list-item-content closed"><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width </span>: <span class="built_in">calc</span>(100% - 30px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果Less把这个当成运算式去执行了，结果给我解析成这样：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>(70%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>经查证,less与calc计算发生冲突，因此作出如下修改：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width </span>: <span class="built_in">calc</span>(~<span class="string">"100% - 30px"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>解析结果正常:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>(100% - 30px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当使用变量是也需要如此:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    @diff : 30px;</span><br><span class="line">    <span class="selector-tag">width</span> : <span class="selector-tag">calc</span>(~"100% <span class="selector-tag">-</span> @&#123;<span class="selector-tag">diff</span>&#125;");</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>PS:在这里提供一个<a href="http://tool.lu/css/" target="_blank" rel="external">工具网站</a> ，能提供各种CSS以及其他语言的格式化，往往less编译后的css文件的格式并不是我们所需要的，现在可以试一下前面我说的网址里面的净化</p></div>
+    <div class="list-item-more">
+        <i class="ice ice-gengduo-copy"></i>
+    </div>
+</div>
+
+    <script>
+        $(function() {
+            $('.list-item-more').click(function(){
+                $(this).hide();
+                console.log($(this).prev().show());
+            });
+        });
+    </script>
+</div>
+    
+    <script src="/js/index.js"></script>
+</section>
+        </div>
+        <div class="main-right">
+            <aside class="sidebar">
+  <div class="userinfo shadow">
+    <div class="info-title">
+        icepual
+    </div>
+    <div class="head-img">
+        <img src="http://selfblog-1253589063.file.myqcloud.com/common/header_100.png">
+    </div>
+    <div class="info-sub-title">
+        你才不是代码的搬运工...
+    </div>
+    <div class="info-links">
+        <a class="ice ice-icon_github info-link" href="https://github.com/icepual" target="_blank" title="GitHub"></a>
+        <a class="ice ice-coding info-link" href="https://coding.net/u/icepual" target="_blank" title="Coding"></a>
+        <a class="ice ice-weibo1 info-link" href="http://weibo.com/icepual" target="_blank" title="微博"></a>
+    </div>
+    <div class="info-btns">
+        <a href="/archives" class="info-btn">
+            归档（8）
+        </a>
+        <a href="/categories" class="info-btn">
+            分类（11）
+        </a>
+        <a href="/tags" class="info-btn">
+            标签（7）
+        </a>
+    </div>
+</div>
+  
+    <!-- 友链 -->
+<div class="friends-wrap shadow">
+    <div class="friends-title">
+        友链
+    </div>
+    
+        <a href="http://www.wilbur.wang" target="_blank"> wilbur[老王的故事] </a>
+    
+        <a href="http://www.ibluetory.com" target="_blank"> bluetory[蓝(lan)枫(xiang)] </a>
+    
+</div>
+  
+</aside>
+        </div>
+      </div>
+      <footer class="footer">
+  <div class="footer-info">
+    <span class="footer-item">
+      &copy;2018
+      ice
+    </span>
+    <span class="footer-item footer-item-plus">
+      Powered by <a class="powered" href="http://hexo.io/" target="_blank">Hexo</a>
+    </span>
+    <span class="footer-item footer-item-plus"><img class="hosted" src="http://selfblog-1253589063.file.myqcloud.com/common/coding.png"></span>
+  </div>
+</footer>
+    </div>
+  </body>
+</html>

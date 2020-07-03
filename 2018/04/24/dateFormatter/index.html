@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="icepual的个人博客">
+  <meta name="keywords" content="icepual 博客">
+  <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <link rel="shortcut icon" href="http://selfblog-1253589063.file.myqcloud.com/common/fav.ico">
+  <link rel="bookmark" href="http://selfblog-1253589063.file.myqcloud.com/common/fav.ico" />
+  <title>icepual</title>
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery-3.1.1.min.js"></script>
+</head>
+
+  <body>
+    <div class="container">
+      
+<header id="header" class="header">
+  <div class="header-banner"></div>
+  <!-- 常规导航 -->
+  <div class="header-outer" id="navBar">
+    <nav class="header-nav">
+      
+        <a class="header-nav-link " href="/">
+          首页
+        </a>
+        
+        <a class="header-nav-link " href="/archives/">
+          归档
+        </a>
+        
+        <a class="header-nav-link " href="/categories/">
+          分类
+        </a>
+        
+        <a class="header-nav-link " href="/tags/">
+          标签
+        </a>
+        
+    </nav>
+    <div class="header-nav-mobile">
+      <div class="menu" id="menuMobile" isopen="false"></div>
+      <div class="title">icepual</div>
+      <img class="nav-head rotation" src="http://selfblog-1253589063.file.myqcloud.com/common/header_100.png">
+    </div>
+  </div>
+  <!-- 顶部固定 -->
+  <div class="header-outer fixed-nav shadow">
+    <nav class="header-nav">
+      
+        <a class="header-nav-link " href="/">
+          首页
+        </a>
+      
+        <a class="header-nav-link " href="/archives/">
+          归档
+        </a>
+      
+        <a class="header-nav-link " href="/categories/">
+          分类
+        </a>
+      
+        <a class="header-nav-link " href="/tags/">
+          标签
+        </a>
+      
+    </nav>
+  </div>
+  <!-- mobile下拉列表 -->
+  <nav class="header-menu-list">
+    
+      <a class="header-menu-list-link " href="/">
+        首页
+      </a>
+      
+      <a class="header-menu-list-link " href="/archives/">
+        归档
+      </a>
+      
+      <a class="header-menu-list-link " href="/categories/">
+        分类
+      </a>
+      
+      <a class="header-menu-list-link " href="/tags/">
+        标签
+      </a>
+      
+  </nav>
+  <!-- 个人中心下拉列表 -->
+  <nav class="header-info-list">
+    <a href="/archives" class="header-info-list-link">
+        归档（8）
+    </a>
+    <a href="/categories" class="header-info-list-link">
+        分类（11）
+    </a>
+    <a href="/tags" class="header-info-list-link">
+        标签（7）
+    </a>
+  </nav>
+  <script>
+    function fixHeader(){
+      var touchHead = $('#navBar').offset().top - $(window).scrollTop();
+      if(touchHead && touchHead <= 0){
+        $('.fixed-nav').show();
+      }else{
+        $('.fixed-nav').hide(0);
+      }
+    }
+    $(function() {
+      // window.addEventListener('scroll', this.handleScroll);
+      $(window).scroll(function (){
+        fixHeader();
+      });
+      $('#menuMobile').click(function (){
+        if($(this).hasClass('menu-close')){
+          $(this).removeClass('menu-close');
+          $('.header-menu-list').removeClass('open');
+        }else{
+          $(this).addClass('menu-close');
+          $('.header-menu-list').addClass('open');
+        }
+      });
+
+     /*  $('.nav-head').click(function(){
+        if($(this).hasClass('close')){
+          $(this).removeClass('close');
+          $('.header-info-list').addClass('open');
+        }else{
+          $(this).addClass('close');
+          $('.header-info-list').removeClass('open');
+        }
+      }); */
+    })
+  </script>
+</header>
+      <div class="main-wrap">
+        <div class="main-left">
+          <div class="main-container shadow">
+
+    <!-- 标准post -->
+    <article class="article">
+  <div class="article-detail">
+    
+      <div class="article-cover" style="background-image:url('http://selfblog-1253589063.file.myqcloud.com/post/calendars-home-hero-us.jpg')"></div>
+    
+    <div class="article-title">
+      javascript日期格式化方法
+    </div>
+    <div class="article-msg">
+      <span class="article-time"><i class="ice ice-rili"></i> 发布时间 2018-04-24
+      </span>
+      &nbsp;|&nbsp;
+      <span class="article-type"><i class="ice ice-wenjianjia"></i> 分类 前端 > JS</span>
+    </div>
+    <div class="article-content">
+      <p>javascript中Date类比较常用,但对于其各种处理(格式化、运算等)都需要引入第三方库(moment.js,day.js)才可以处理, 但通常情况下我们用到的只是格式化而已,所以以下记录一个格式化的方法 <a id="more"></a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 日期格式化</span></span><br><span class="line"><span class="comment"> * @param date Date 目标日期对象/String 日期对应字符串/ Number: 时间戳(精确到毫秒)</span></span><br><span class="line"><span class="comment"> *        String fmt 指定格式字符串月(M)、日(d)、12小时(h)、24小时(H)、分(m)、秒(s)、周(E)、季度(q)可以用 1-2 个占位符、年(y)可以用 1-4 个占位符、毫秒(S)只能用 1 个占位符(是 1-3 位的数字)</span></span><br><span class="line"><span class="comment"> * @return Boolean</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dateFormatter</span>(<span class="params">dateTmp, fmtTmp</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> fmt = fmtTmp;</span><br><span class="line">    <span class="keyword">let</span> date = dateTmp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!fmt) &#123;</span><br><span class="line">        fmt = <span class="string">'yyyy.MM.dd'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!(date <span class="keyword">instanceof</span> <span class="built_in">Date</span>)) &#123;</span><br><span class="line">        date = <span class="keyword">new</span> <span class="built_in">Date</span>(date);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> o = &#123;</span><br><span class="line">        <span class="string">"M+"</span>: date.getMonth() + <span class="number">1</span>, <span class="comment">//月份</span></span><br><span class="line">        <span class="string">"d+"</span>: date.getDate(), <span class="comment">//日</span></span><br><span class="line">        <span class="string">"h+"</span>: date.getHours() % <span class="number">12</span> == <span class="number">0</span> ? <span class="number">12</span> : date.getHours() % <span class="number">12</span>, <span class="comment">//小时</span></span><br><span class="line">        <span class="string">"H+"</span>: date.getHours(), <span class="comment">//小时</span></span><br><span class="line">        <span class="string">"m+"</span>: date.getMinutes(), <span class="comment">//分</span></span><br><span class="line">        <span class="string">"s+"</span>: date.getSeconds(), <span class="comment">//秒</span></span><br><span class="line">        <span class="string">"q+"</span>: <span class="built_in">Math</span>.floor((date.getMonth() + <span class="number">3</span>) / <span class="number">3</span>), <span class="comment">//季度</span></span><br><span class="line">        <span class="string">"S"</span>: date.getMilliseconds() <span class="comment">//毫秒</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">let</span> week = &#123;</span><br><span class="line">        <span class="string">"0"</span>: <span class="string">"日"</span>,</span><br><span class="line">        <span class="string">"1"</span>: <span class="string">"一"</span>,</span><br><span class="line">        <span class="string">"2"</span>: <span class="string">"二"</span>,</span><br><span class="line">        <span class="string">"3"</span>: <span class="string">"三"</span>,</span><br><span class="line">        <span class="string">"4"</span>: <span class="string">"四"</span>,</span><br><span class="line">        <span class="string">"5"</span>: <span class="string">"五"</span>,</span><br><span class="line">        <span class="string">"6"</span>: <span class="string">"六"</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/(y+)/</span>.test(fmt)) &#123;</span><br><span class="line">        fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (date.getFullYear() + <span class="string">""</span>).substr(<span class="number">4</span> - <span class="built_in">RegExp</span>.$<span class="number">1.</span>length));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/(E+)/</span>.test(fmt)) &#123;</span><br><span class="line">        fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, ((<span class="built_in">RegExp</span>.$<span class="number">1.</span>length &gt; <span class="number">1</span>) ? (<span class="built_in">RegExp</span>.$<span class="number">1.</span>length &gt; <span class="number">2</span> ? <span class="string">"星期"</span> : <span class="string">"周"</span>) : <span class="string">""</span>) + week[date.getDay() + <span class="string">""</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> o) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"("</span> + k + <span class="string">")"</span>).test(fmt)) &#123;</span><br><span class="line">            fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (<span class="built_in">RegExp</span>.$<span class="number">1.</span>length == <span class="number">1</span>) ? (o[k]) : ((<span class="string">"00"</span> + o[k]).substr((<span class="string">""</span> + o[k]).length)));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fmt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>赶紧试一试吧:</p>
+<p><div class="input"><input id="format" type="text" style="background-color: #fff;display: inline-block;background-image: none;border-radius: 4px;border: 1px solid #dcdfe6;box-sizing: border-box;color: #606266;display: inline-block;font-size: inherit;height: 40px;line-height: 40px;outline: none;padding: 0 15px;vertical-align:top;"><button onclick="formatter()" style="display: inline-block;line-height: 1;white-space: nowrap;cursor: pointer;background: #fff;border: 1px solid #dcdfe6;border-color: #dcdfe6;color: #606266;-webkit-appearance: none;text-align: center;box-sizing: border-box;outline: none;margin: 0;transition: .1s;font-weight: 500;padding: 12px 20px;font-size: 14px;border-radius: 4px;vertical-align:top;margin-left:10px;">格式化</button></div><div id="result" style="margin: 10px;"></div></p>
+<script type="text/javascript">
+    function dateFormatter(dateTmp, fmtTmp) {
+        let fmt = fmtTmp;
+        let date = dateTmp;
+        if (!fmt) {
+            fmt = 'yyyy.MM.dd';
+        }
+        if (!(date instanceof Date)) {
+            date = new Date(date);
+        }
+        let o = {
+            "M+": date.getMonth() + 1, //月份
+            "d+": date.getDate(), //日
+            "h+": date.getHours() % 12 == 0 ? 12 : date.getHours() % 12, //小时
+            "H+": date.getHours(), //小时
+            "m+": date.getMinutes(), //分
+            "s+": date.getSeconds(), //秒
+            "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+            "S": date.getMilliseconds() //毫秒
+        };
+        let week = {
+            "0": "日",
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六"
+        };
+        if (/(y+)/.test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+        }
+        if (/(E+)/.test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, ((RegExp.$1.length > 1) ? (RegExp.$1.length > 2 ? "星期" : "周") : "") + week[
+                date.getDay() + ""]);
+        }
+        for (var k in o) {
+            if (new RegExp("(" + k + ")").test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            }
+        }
+        return fmt;
+    }
+    function formatter() {
+        let data = new Date();
+        let fmt = document.getElementById('format').value;
+        document.getElementById('result').innerHTML = '格式化结果: '+dateFormatter(new Date(), fmt);
+    }
+</script>
+    </div>
+    <footer class="article-footer">
+      
+        <div class="hidden"></div>
+      
+      
+        <a class="article-footer-next" href="/2018/04/24/eruda/"><span class="ellipsis">移动端web调试工具</span><i class="ice ice-xiayiye"></i></a>
+      
+    </footer>
+  </div>
+</article>
+
+</div>
+        </div>
+        <div class="main-right">
+            <aside class="sidebar">
+  <div class="userinfo shadow">
+    <div class="info-title">
+        icepual
+    </div>
+    <div class="head-img">
+        <img src="http://selfblog-1253589063.file.myqcloud.com/common/header_100.png">
+    </div>
+    <div class="info-sub-title">
+        你才不是代码的搬运工...
+    </div>
+    <div class="info-links">
+        <a class="ice ice-icon_github info-link" href="https://github.com/icepual" target="_blank" title="GitHub"></a>
+        <a class="ice ice-coding info-link" href="https://coding.net/u/icepual" target="_blank" title="Coding"></a>
+        <a class="ice ice-weibo1 info-link" href="http://weibo.com/icepual" target="_blank" title="微博"></a>
+    </div>
+    <div class="info-btns">
+        <a href="/archives" class="info-btn">
+            归档（8）
+        </a>
+        <a href="/categories" class="info-btn">
+            分类（11）
+        </a>
+        <a href="/tags" class="info-btn">
+            标签（7）
+        </a>
+    </div>
+</div>
+  
+    <!-- 友链 -->
+<div class="friends-wrap shadow">
+    <div class="friends-title">
+        友链
+    </div>
+    
+        <a href="http://www.wilbur.wang" target="_blank"> wilbur[老王的故事] </a>
+    
+        <a href="http://www.ibluetory.com" target="_blank"> bluetory[蓝(lan)枫(xiang)] </a>
+    
+</div>
+  
+</aside>
+        </div>
+      </div>
+      <footer class="footer">
+  <div class="footer-info">
+    <span class="footer-item">
+      &copy;2018
+      ice
+    </span>
+    <span class="footer-item footer-item-plus">
+      Powered by <a class="powered" href="http://hexo.io/" target="_blank">Hexo</a>
+    </span>
+    <span class="footer-item footer-item-plus"><img class="hosted" src="http://selfblog-1253589063.file.myqcloud.com/common/coding.png"></span>
+  </div>
+</footer>
+    </div>
+  </body>
+</html>

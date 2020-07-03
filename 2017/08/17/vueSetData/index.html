@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="icepual的个人博客">
+  <meta name="keywords" content="icepual 博客">
+  <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <link rel="shortcut icon" href="http://selfblog-1253589063.file.myqcloud.com/common/fav.ico">
+  <link rel="bookmark" href="http://selfblog-1253589063.file.myqcloud.com/common/fav.ico" />
+  <title>icepual</title>
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery-3.1.1.min.js"></script>
+</head>
+
+  <body>
+    <div class="container">
+      
+<header id="header" class="header">
+  <div class="header-banner"></div>
+  <!-- 常规导航 -->
+  <div class="header-outer" id="navBar">
+    <nav class="header-nav">
+      
+        <a class="header-nav-link " href="/">
+          首页
+        </a>
+        
+        <a class="header-nav-link " href="/archives/">
+          归档
+        </a>
+        
+        <a class="header-nav-link " href="/categories/">
+          分类
+        </a>
+        
+        <a class="header-nav-link " href="/tags/">
+          标签
+        </a>
+        
+    </nav>
+    <div class="header-nav-mobile">
+      <div class="menu" id="menuMobile" isopen="false"></div>
+      <div class="title">icepual</div>
+      <img class="nav-head rotation" src="http://selfblog-1253589063.file.myqcloud.com/common/header_100.png">
+    </div>
+  </div>
+  <!-- 顶部固定 -->
+  <div class="header-outer fixed-nav shadow">
+    <nav class="header-nav">
+      
+        <a class="header-nav-link " href="/">
+          首页
+        </a>
+      
+        <a class="header-nav-link " href="/archives/">
+          归档
+        </a>
+      
+        <a class="header-nav-link " href="/categories/">
+          分类
+        </a>
+      
+        <a class="header-nav-link " href="/tags/">
+          标签
+        </a>
+      
+    </nav>
+  </div>
+  <!-- mobile下拉列表 -->
+  <nav class="header-menu-list">
+    
+      <a class="header-menu-list-link " href="/">
+        首页
+      </a>
+      
+      <a class="header-menu-list-link " href="/archives/">
+        归档
+      </a>
+      
+      <a class="header-menu-list-link " href="/categories/">
+        分类
+      </a>
+      
+      <a class="header-menu-list-link " href="/tags/">
+        标签
+      </a>
+      
+  </nav>
+  <!-- 个人中心下拉列表 -->
+  <nav class="header-info-list">
+    <a href="/archives" class="header-info-list-link">
+        归档（8）
+    </a>
+    <a href="/categories" class="header-info-list-link">
+        分类（11）
+    </a>
+    <a href="/tags" class="header-info-list-link">
+        标签（7）
+    </a>
+  </nav>
+  <script>
+    function fixHeader(){
+      var touchHead = $('#navBar').offset().top - $(window).scrollTop();
+      if(touchHead && touchHead <= 0){
+        $('.fixed-nav').show();
+      }else{
+        $('.fixed-nav').hide(0);
+      }
+    }
+    $(function() {
+      // window.addEventListener('scroll', this.handleScroll);
+      $(window).scroll(function (){
+        fixHeader();
+      });
+      $('#menuMobile').click(function (){
+        if($(this).hasClass('menu-close')){
+          $(this).removeClass('menu-close');
+          $('.header-menu-list').removeClass('open');
+        }else{
+          $(this).addClass('menu-close');
+          $('.header-menu-list').addClass('open');
+        }
+      });
+
+     /*  $('.nav-head').click(function(){
+        if($(this).hasClass('close')){
+          $(this).removeClass('close');
+          $('.header-info-list').addClass('open');
+        }else{
+          $(this).addClass('close');
+          $('.header-info-list').removeClass('open');
+        }
+      }); */
+    })
+  </script>
+</header>
+      <div class="main-wrap">
+        <div class="main-left">
+          <div class="main-container shadow">
+
+    <!-- 标准post -->
+    <article class="article">
+  <div class="article-detail">
+    
+      <div class="article-cover" style="background-image:url('http://selfblog-1253589063.file.myqcloud.com/post/data.jpg')"></div>
+    
+    <div class="article-title">
+      小谈vue赋值
+    </div>
+    <div class="article-msg">
+      <span class="article-time"><i class="ice ice-rili"></i> 发布时间 2017-08-17
+      </span>
+      &nbsp;|&nbsp;
+      <span class="article-type"><i class="ice ice-wenjianjia"></i> 分类 前端 > JS</span>
+    </div>
+    <div class="article-content">
+      <h2 id="Vue中set-delete使用（Vue2-x）"><a href="#Vue中set-delete使用（Vue2-x）" class="headerlink" title="Vue中set,delete使用（Vue2.x）"></a>Vue中set,delete使用（Vue2.x）</h2><p>由于JavaScript限制，在部分情况下，通过js改变数据，Vue并不能检测到，从而无法完成渲染，针对这些情况,Vue给出了相应的解决办法</p>
+<a id="more"></a>
+<blockquote>
+<p>数组检测</p>
+</blockquote>
+<p>由于javascript的限制，Vue不能检测到下面数组的变化：</p>
+<ol>
+<li>直接索引设置元素，如vm.item[0]={};</li>
+<li>修改数据的长度，如vm.item.length。<br>为了解决问题1，Vue扩展了观察数组，为它添加一个$set()方法，以下是一个错误例子：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        &#123;&#123;mytest&#125;&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"change"</span>&gt;</span>改变son<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="undefined">        components: &#123;&#125;,</span></span><br><span class="line"><span class="undefined">        data() &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="undefined">                mytest: [&#123;</span></span><br><span class="line"><span class="javascript">                    name: <span class="string">'张三'</span>,</span></span><br><span class="line"><span class="javascript">                    age: <span class="string">'50'</span>,</span></span><br><span class="line"><span class="undefined">                &#125;]</span></span><br><span class="line"><span class="undefined">            &#125;;</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        methods: &#123;</span></span><br><span class="line"><span class="undefined">            change()&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">                <span class="keyword">this</span>.mytest[<span class="number">0</span>] = &#123;</span></span><br><span class="line"><span class="javascript">                    name: <span class="string">'张大'</span>,</span></span><br><span class="line"><span class="javascript">                    age: <span class="string">'60'</span>,</span></span><br><span class="line"><span class="undefined">                &#125;;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>通过以上方法,直接修改数组的某一个元素,无法触发视图的更新,需要修改为:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.mytest, <span class="number">0</span>, &#123;</span><br><span class="line">        name: <span class="string">'张发的'</span>,</span><br><span class="line">        age: <span class="string">'145'</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>另外,还提供了删除方法: this.$delete(object, key)，同样会触发视图更新。</p>
+<blockquote>
+<p>检测对象</p>
+</blockquote>
+<p>受ES5的显示，VUE不能检测到对象属性的添加或删除。因为VUE在初始化时候将属性转化为getter/setter，所以属性必须在data对象才能让VUE转换它，才能让它是响应的,例如:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    data: data</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// `vm.a` 和 `data.a` 现在是响应的</span></span><br><span class="line"></span><br><span class="line">vm.b = <span class="number">2</span></span><br><span class="line"><span class="comment">// `vm.b` 不是响应的</span></span><br><span class="line"></span><br><span class="line">data.b = <span class="number">2</span></span><br><span class="line"><span class="comment">// `data.b` 不是响应的</span></span><br></pre></td></tr></table></figure></p>
+<p>不过，有办法在实例创建之后添加属性并且让它是响应的。对于Vue实例，可以使用$set(key,value)实例方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.$set(<span class="string">'b'</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure></p>
+<p>有时你想向已有对象上添加一些属性，例如使用 Object.assign() 或 _.extend() 添加属性。但是，添加到对象上的新属性不会触发更新。这时可以创建一个新的对象，包含原对象的属性和新的属性：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不使用 `Object.assign(this.someObject, &#123; a: 1, b: 2 &#125;)`</span></span><br><span class="line"><span class="keyword">this</span>.someObject = <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.someObject, &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;)</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+    <footer class="article-footer">
+      
+        <a class="article-footer-prev" href="/2017/12/11/vueImgPreview/"><i class="ice ice-shangyiye"></i><span class="ellipsis">vue图片预览组件实例</span></a>
+      
+      
+        <a class="article-footer-next" href="/2017/07/11/stickFooter/"><span class="ellipsis">stick footer实现尾部固定布局</span><i class="ice ice-xiayiye"></i></a>
+      
+    </footer>
+  </div>
+</article>
+
+</div>
+        </div>
+        <div class="main-right">
+            <aside class="sidebar">
+  <div class="userinfo shadow">
+    <div class="info-title">
+        icepual
+    </div>
+    <div class="head-img">
+        <img src="http://selfblog-1253589063.file.myqcloud.com/common/header_100.png">
+    </div>
+    <div class="info-sub-title">
+        你才不是代码的搬运工...
+    </div>
+    <div class="info-links">
+        <a class="ice ice-icon_github info-link" href="https://github.com/icepual" target="_blank" title="GitHub"></a>
+        <a class="ice ice-coding info-link" href="https://coding.net/u/icepual" target="_blank" title="Coding"></a>
+        <a class="ice ice-weibo1 info-link" href="http://weibo.com/icepual" target="_blank" title="微博"></a>
+    </div>
+    <div class="info-btns">
+        <a href="/archives" class="info-btn">
+            归档（8）
+        </a>
+        <a href="/categories" class="info-btn">
+            分类（11）
+        </a>
+        <a href="/tags" class="info-btn">
+            标签（7）
+        </a>
+    </div>
+</div>
+  
+    <!-- 友链 -->
+<div class="friends-wrap shadow">
+    <div class="friends-title">
+        友链
+    </div>
+    
+        <a href="http://www.wilbur.wang" target="_blank"> wilbur[老王的故事] </a>
+    
+        <a href="http://www.ibluetory.com" target="_blank"> bluetory[蓝(lan)枫(xiang)] </a>
+    
+</div>
+  
+</aside>
+        </div>
+      </div>
+      <footer class="footer">
+  <div class="footer-info">
+    <span class="footer-item">
+      &copy;2018
+      ice
+    </span>
+    <span class="footer-item footer-item-plus">
+      Powered by <a class="powered" href="http://hexo.io/" target="_blank">Hexo</a>
+    </span>
+    <span class="footer-item footer-item-plus"><img class="hosted" src="http://selfblog-1253589063.file.myqcloud.com/common/coding.png"></span>
+  </div>
+</footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="icepual的个人博客">
+  <meta name="keywords" content="icepual 博客">
+  <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <link rel="shortcut icon" href="http://selfblog-1253589063.file.myqcloud.com/common/fav.ico">
+  <link rel="bookmark" href="http://selfblog-1253589063.file.myqcloud.com/common/fav.ico" />
+  <title>icepual</title>
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery-3.1.1.min.js"></script>
+</head>
+
+  <body>
+    <div class="container">
+      
+<header id="header" class="header">
+  <div class="header-banner"></div>
+  <!-- 常规导航 -->
+  <div class="header-outer" id="navBar">
+    <nav class="header-nav">
+      
+        <a class="header-nav-link " href="/">
+          首页
+        </a>
+        
+        <a class="header-nav-link active" href="/archives/">
+          归档
+        </a>
+        
+        <a class="header-nav-link " href="/categories/">
+          分类
+        </a>
+        
+        <a class="header-nav-link " href="/tags/">
+          标签
+        </a>
+        
+    </nav>
+    <div class="header-nav-mobile">
+      <div class="menu" id="menuMobile" isopen="false"></div>
+      <div class="title">icepual</div>
+      <img class="nav-head rotation" src="http://selfblog-1253589063.file.myqcloud.com/common/header_100.png">
+    </div>
+  </div>
+  <!-- 顶部固定 -->
+  <div class="header-outer fixed-nav shadow">
+    <nav class="header-nav">
+      
+        <a class="header-nav-link " href="/">
+          首页
+        </a>
+      
+        <a class="header-nav-link active" href="/archives/">
+          归档
+        </a>
+      
+        <a class="header-nav-link " href="/categories/">
+          分类
+        </a>
+      
+        <a class="header-nav-link " href="/tags/">
+          标签
+        </a>
+      
+    </nav>
+  </div>
+  <!-- mobile下拉列表 -->
+  <nav class="header-menu-list">
+    
+      <a class="header-menu-list-link " href="/">
+        首页
+      </a>
+      
+      <a class="header-menu-list-link active" href="/archives/">
+        归档
+      </a>
+      
+      <a class="header-menu-list-link " href="/categories/">
+        分类
+      </a>
+      
+      <a class="header-menu-list-link " href="/tags/">
+        标签
+      </a>
+      
+  </nav>
+  <!-- 个人中心下拉列表 -->
+  <nav class="header-info-list">
+    <a href="/archives" class="header-info-list-link">
+        归档（8）
+    </a>
+    <a href="/categories" class="header-info-list-link">
+        分类（11）
+    </a>
+    <a href="/tags" class="header-info-list-link">
+        标签（7）
+    </a>
+  </nav>
+  <script>
+    function fixHeader(){
+      var touchHead = $('#navBar').offset().top - $(window).scrollTop();
+      if(touchHead && touchHead <= 0){
+        $('.fixed-nav').show();
+      }else{
+        $('.fixed-nav').hide(0);
+      }
+    }
+    $(function() {
+      // window.addEventListener('scroll', this.handleScroll);
+      $(window).scroll(function (){
+        fixHeader();
+      });
+      $('#menuMobile').click(function (){
+        if($(this).hasClass('menu-close')){
+          $(this).removeClass('menu-close');
+          $('.header-menu-list').removeClass('open');
+        }else{
+          $(this).addClass('menu-close');
+          $('.header-menu-list').addClass('open');
+        }
+      });
+
+     /*  $('.nav-head').click(function(){
+        if($(this).hasClass('close')){
+          $(this).removeClass('close');
+          $('.header-info-list').addClass('open');
+        }else{
+          $(this).addClass('close');
+          $('.header-info-list').removeClass('open');
+        }
+      }); */
+    })
+  </script>
+</header>
+      <div class="main-wrap">
+        <div class="main-left">
+          <div class="main-container shadow">
+
+
+  
+  
+    
+    
+    <section class="archives-wrap">
+      <div class="archive-year-wrap">
+        <a href="/archives/2018" class="archive-year">2018</a>
+      </div>
+      <div class="archives">
+        <div class="archive-post" onclick="fnGoArticle('/2018/04/24/dateFormatter/')">
+          <div>04-24</div>
+          <div>javascript日期格式化方法</div>
+        </div>
+  
+
+  
+  
+      <div class="archive-post" onclick="fnGoArticle('/2018/04/24/eruda/')">
+        <div>04-24</div>
+        <div>移动端web调试工具</div>
+      </div>
+  
+
+  
+  
+      <div class="archive-post" onclick="fnGoArticle('/2018/04/24/nodePupeteer/')">
+        <div>04-24</div>
+        <div>node+puppeteer简单爬虫爬取图片地址</div>
+      </div>
+  
+
+  
+  
+      <div class="archive-post" onclick="fnGoArticle('/2018/04/23/jsGetWeek/')">
+        <div>04-23</div>
+        <div>Date对象获取某天周数以及通过周数获取日期</div>
+      </div>
+  
+
+
+  </div></section>
+
+
+
+<script>
+  function fnGoArticle(url){
+    location.href = url;
+  }
+</script>
+</div>
+        </div>
+        <div class="main-right">
+            <aside class="sidebar">
+  <div class="userinfo shadow">
+    <div class="info-title">
+        icepual
+    </div>
+    <div class="head-img">
+        <img src="http://selfblog-1253589063.file.myqcloud.com/common/header_100.png">
+    </div>
+    <div class="info-sub-title">
+        你才不是代码的搬运工...
+    </div>
+    <div class="info-links">
+        <a class="ice ice-icon_github info-link" href="https://github.com/icepual" target="_blank" title="GitHub"></a>
+        <a class="ice ice-coding info-link" href="https://coding.net/u/icepual" target="_blank" title="Coding"></a>
+        <a class="ice ice-weibo1 info-link" href="http://weibo.com/icepual" target="_blank" title="微博"></a>
+    </div>
+    <div class="info-btns">
+        <a href="/archives" class="info-btn">
+            归档（8）
+        </a>
+        <a href="/categories" class="info-btn">
+            分类（11）
+        </a>
+        <a href="/tags" class="info-btn">
+            标签（7）
+        </a>
+    </div>
+</div>
+  
+    <!-- 友链 -->
+<div class="friends-wrap shadow">
+    <div class="friends-title">
+        友链
+    </div>
+    
+        <a href="http://www.wilbur.wang" target="_blank"> wilbur[老王的故事] </a>
+    
+        <a href="http://www.ibluetory.com" target="_blank"> bluetory[蓝(lan)枫(xiang)] </a>
+    
+</div>
+  
+</aside>
+        </div>
+      </div>
+      <footer class="footer">
+  <div class="footer-info">
+    <span class="footer-item">
+      &copy;2018
+      ice
+    </span>
+    <span class="footer-item footer-item-plus">
+      Powered by <a class="powered" href="http://hexo.io/" target="_blank">Hexo</a>
+    </span>
+    <span class="footer-item footer-item-plus"><img class="hosted" src="http://selfblog-1253589063.file.myqcloud.com/common/coding.png"></span>
+  </div>
+</footer>
+    </div>
+  </body>
+</html>
